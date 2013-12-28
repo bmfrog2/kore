@@ -1,3 +1,4 @@
-exports.run = function(){
-	console.log('run test.js6');  
+var EX = exports;
+EX.run = function(){
+	console.log('run test.js7');  
 };
