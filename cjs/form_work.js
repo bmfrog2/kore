@@ -2,7 +2,7 @@ var EX = exports;
 
 EX.vp = {};
 
-EX.build = function( tb ){
+EX.build = function( main_menu, source_explore ){
 
 	console.log('build work form');  
 	
@@ -10,9 +10,11 @@ EX.build = function( tb ){
 			layout: 'border',
 			items: [{
 				region: 'north',
-				margins: 0,
-				height: 30,
-				xtype: 'container'
+				margins: 5,
+				xtype: 'container',
+				items : [ 
+					main_menu,
+				],
 			}, {
 				title: 'Source explore',
 				region: 'west',
@@ -20,7 +22,11 @@ EX.build = function( tb ){
 				flex: .3,
 				collapsible: true,
 				split: true,
-				titleCollapse: true
+				titleCollapse: true,
+				layout : 'anchor',
+				items : [
+					source_explore,
+				],
 			}, {
 				title: 'Code',
 				region: 'center'

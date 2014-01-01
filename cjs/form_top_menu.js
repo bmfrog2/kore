@@ -7,7 +7,6 @@ EX.build = function(){
 	console.log('build top menu');  
 	
 	EX.tb = Ext.create('Ext.toolbar.Toolbar', {
-		renderTo : Ext.getBody(),
 		items : [ 
 			{
 				xtype	:'label',

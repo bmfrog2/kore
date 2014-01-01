@@ -12,6 +12,7 @@ var express 		= require('express')
   
   // routers
   , home			= require('./routes/index')
+  , source_explore  = require('./routes/source_explore')
   ;
 
   
@@ -46,6 +47,8 @@ app.use(express.static(path.join(global.root_path, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+source_explore.init();
  
 server.listen(app.get('port'), function(){
   	console.log("Express server listening on port " + app.get('port'));
@@ -55,4 +58,6 @@ server.listen(app.get('port'), function(){
 var io 		= socketio.listen( server, { log: false });
 
 app.get('/', home.index);
+
+io.of('/source_explore').on( 'connection', source_explore.on_connection ); 
 
